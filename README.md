@@ -8,7 +8,7 @@ Used as a wrapper for PoH validators.
 
 ## Live dApp demo
 
-https://poh-counter.bakoush.in
+https://poh-counter.bakoush.in ([source code](https://github.com/bakoushin/poh-counter-example))
 
 ## Install
 
@@ -94,6 +94,7 @@ Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hca
 ## See also
 
 - [Proof-of-Humanity hCaptcha Validator API](https://github.com/bakoushin/poh-validator-hcaptcha-api)
+- [Proof-of-Humanity hCaptcha Validator React](https://npmjs.com/package/poh-validator-hcaptcha-react)
 - [Proof-of-Humanity Counter dApp](https://github.com/bakoushin/poh-counter-example)
 - [Proof-of-Humanity Solidity Contracts](https://github.com/bakoushin/poh-contracts)
 
