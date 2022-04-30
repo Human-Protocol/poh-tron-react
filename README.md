@@ -63,11 +63,11 @@ const handleClick = () => {
 <button onClick={handleClick}>Send transaction</button>
 ```
 
-> The method in the smart contract must know how to deal with the `proof`. We have a Solidity library just for that: [poh-contracts](https://npmjs.com/package/poh-contracts)
+> The method in the smart contract must know how to deal with the `proof`. You can leverage a Solidity library just for that: [poh-contracts](https://npmjs.com/package/poh-contracts)
 
 ## Supported Validator Plugins
 
-- [hCaptcha validator](https://npmjs.com/package/poh-react-validator-hcaptcha)
+- [hCaptcha validator](https://npmjs.com/package/poh-validator-hcaptcha-react)
 
 ## Validator Plugin Requirements
 
@@ -85,7 +85,7 @@ Validator plugin component must be a React component accepting the following pro
 
 - `proof` _(string)_: proof-of-humanity (a hex string); `null` in case of error
 
-Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-react-validator-hcaptcha)
+Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hcaptcha-react)
 
 ## Author
 
