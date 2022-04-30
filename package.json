@@ -1,0 +1,60 @@
+{
+  "name": "poh-react",
+  "version": "0.0.1",
+  "description": "Proof-of-Humanity Core Component for React",
+  "main": "lib/index.js",
+  "module": "lib/index.es.js",
+  "scripts": {
+    "build": "rollup -c",
+    "test": "jest",
+    "verdaccio": "docker run -it --rm --name verdaccio -p 4873:4873 verdaccio/verdaccio",
+    "dev:publish": "npm publish --registry http://localhost:4873/"
+  },
+  "keywords": [
+    "react",
+    "humanity",
+    "proof"
+  ],
+  "author": "Alex Bakoushin <alex@bakoush.in>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bakoushin/poh-react.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bakoushin/poh-react/issues"
+  },
+  "homepage": "https://github.com/bakoushin/poh-react#readme",
+  "files": [
+    "lib"
+  ],
+  "dependencies": {
+    "@babel/runtime": "^7.17.9",
+    "@emotion/react": "^11.9.0",
+    "@hcaptcha/react-hcaptcha": "^1.2.0",
+    "ethers": "^5.6.4"
+  },
+  "peerDependencies": {
+    "react": ">=17.0.2",
+    "react-dom": ">=17.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "7.17.9",
+    "@babel/plugin-transform-runtime": "7.17.0",
+    "@babel/preset-env": "7.16.11",
+    "@babel/preset-react": "7.16.7",
+    "@emotion/babel-preset-css-prop": "11.2.0",
+    "@rollup/plugin-babel": "5.3.1",
+    "@rollup/plugin-commonjs": "22.0.0",
+    "@rollup/plugin-image": "2.1.1",
+    "@rollup/plugin-node-resolve": "13.2.1",
+    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/react": "12.1.5",
+    "identity-obj-proxy": "3.0.0",
+    "jest": "28.0.2",
+    "jest-environment-jsdom": "28.0.2",
+    "rollup": "2.70.2",
+    "rollup-plugin-peer-deps-external": "2.2.4",
+    "rollup-plugin-terser": "7.0.2"
+  }
+}
