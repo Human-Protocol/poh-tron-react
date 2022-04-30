@@ -50,7 +50,7 @@ const { getProofOfHumanity } = useProofOfHumanity(validator);
 ```jsx
 const handleClick = () => {
   try {
-      const { error, message, proof } = await getProofOfHumanity();
+      const { error, errorMessage, proof } = await getProofOfHumanity();
 
       if (!error) {
         const tx = await mySmartContract.someImportantMethod(proof);
