@@ -6,6 +6,10 @@ Proof-of-Humanity Core Component for React.
 
 Used as a wrapper for PoH validators.
 
+## Live dApp demo
+
+https://poh-counter.bakoush.in
+
 ## Install
 
 ```bash
@@ -86,6 +90,12 @@ Validator plugin component must be a React component accepting the following pro
 - `proof` _(string)_: proof-of-humanity (a hex string); `null` in case of error
 
 Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hcaptcha-react)
+
+## See also
+
+- [Proof-of-Humanity hCaptcha Validator API](https://github.com/bakoushin/poh-validator-hcaptcha-api)
+- [Proof-of-Humanity Counter dApp](https://github.com/bakoushin/poh-counter-example)
+- [Proof-of-Humanity Solidity Contracts](https://github.com/bakoushin/poh-contracts)
 
 ## Author
 
