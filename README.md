@@ -93,10 +93,10 @@ Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hca
 
 ## See also
 
-- [Proof-of-Humanity hCaptcha Validator API](https://github.com/bakoushin/poh-validator-hcaptcha-api)
+- [Proof-of-Humanity hCaptcha Validator API](https://hub.docker.com/r/bakoushin/poh-validator-hcaptcha)
 - [Proof-of-Humanity hCaptcha Validator React](https://npmjs.com/package/poh-validator-hcaptcha-react)
-- [Proof-of-Humanity Counter dApp](https://github.com/bakoushin/poh-counter-example)
-- [Proof-of-Humanity Solidity Contracts](https://github.com/bakoushin/poh-contracts)
+- [Proof-of-Humanity Solidity Contracts](https://npmjs.com/package/poh-contracts)
+- [Counter dApp Example](https://github.com/bakoushin/poh-counter-example)
 
 ## Author
 
