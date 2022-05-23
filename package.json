@@ -1,6 +1,6 @@
 {
   "name": "poh-react",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Proof-of-Humanity Core Component for React",
   "main": "lib/index.js",
   "module": "lib/index.es.js",

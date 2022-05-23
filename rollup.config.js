@@ -31,7 +31,7 @@ export default [
         babelHelpers: 'runtime'
       }),
       image(),
-      resolve(),
+      resolve({ extensions: ['.js', '.jsx'] }),
       commonjs(),
       terser()
     ],

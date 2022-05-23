@@ -1,7 +1,8 @@
 import React, { useState, useContext } from 'react';
 import ReactDOM from 'react-dom';
+import { ethers } from 'ethers';
 import { css } from '@emotion/react';
-import ProofOfHumanityWrapper from './ProofOfHumanityWrapper.jsx';
+import ProofOfHumanityWrapper from './components/ProofOfHumanityWrapper.jsx';
 
 const ProofOfHumanityContext = React.createContext();
 
@@ -90,7 +91,10 @@ function Modal() {
               </div>
               <ProofOfHumanityWrapper
                 onVerify={close}
+                data={options.data}
                 validators={options.validators}
+                type={options.type}
+                ethereum={options.ethereum}
               />
             </div>
           </div>
@@ -100,12 +104,24 @@ function Modal() {
     : null;
 }
 
-function useProofOfHumanity(validators) {
+function useProofOfHumanity(
+  validators,
+  { type, ethereum } = { type: 'basic', ethereum: null }
+) {
   const { open } = useContext(ProofOfHumanityContext);
 
   const getProofOfHumanity = () => {
     return new Promise((resolve) => {
-      open({ callback: resolve, validators });
+      const randomChallenge = ethers.utils.hexlify(
+        ethers.utils.randomBytes(32)
+      );
+      open({
+        callback: resolve,
+        data: randomChallenge,
+        validators,
+        type,
+        ethereum
+      });
     });
   };
 
@@ -116,9 +132,9 @@ function ProofOfHumanityProvider({ children }) {
   const [isShowing, setIsShowing] = useState(false);
   const [options, setOptions] = useState({});
 
-  const open = ({ callback, validators }) => {
+  const open = (options) => {
     setIsShowing(true);
-    setOptions({ callback, validators });
+    setOptions({ ...options });
   };
 
   const close = (result) => {

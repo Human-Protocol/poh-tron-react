@@ -11,8 +11,21 @@ beforeEach(() => {
   mockAction = jest.fn();
 });
 
-const TestComponent = ({ validators }) => {
+const TestComponentBasic = ({ validators }) => {
   const { getProofOfHumanity } = useProofOfHumanity(validators);
+
+  const handleClick = jest.fn(async () => {
+    await getProofOfHumanity();
+    mockAction();
+  });
+
+  return <button onClick={handleClick}>Test</button>;
+};
+
+const TestComponentSovereign = ({ validators }) => {
+  const { getProofOfHumanity } = useProofOfHumanity(validators, {
+    type: 'sovereign'
+  });
 
   const handleClick = jest.fn(async () => {
     await getProofOfHumanity();
@@ -28,7 +41,7 @@ describe('ProofOfHumanity', () => {
 
     const { getByRole } = render(
       <ProofOfHumanityProvider>
-        <TestComponent validators={singleValidator} />
+        <TestComponentBasic validators={singleValidator} />
       </ProofOfHumanityProvider>
     );
     const button = getByRole('button');
@@ -47,9 +60,9 @@ describe('ProofOfHumanity', () => {
   test('renders the ProofOfHumanity with multiple validators', async () => {
     const multipleValidators = [<ValidatorMock />, <ValidatorMock />];
 
-    const { getAllByRole } = render(
+    render(
       <ProofOfHumanityProvider>
-        <TestComponent validators={multipleValidators} />
+        <TestComponentBasic validators={multipleValidators} />
       </ProofOfHumanityProvider>
     );
 
@@ -68,5 +81,21 @@ describe('ProofOfHumanity', () => {
     await waitFor(() => screen.getByText('Test'));
 
     expect(mockAction).toHaveBeenCalledTimes(1);
+  });
+
+  test('renders the ProofOfHumanity with address confirmation (sovereign PoH)', async () => {
+    const singleValidator = <ValidatorMock />;
+
+    const { getByRole } = render(
+      <ProofOfHumanityProvider>
+        <TestComponentSovereign validators={singleValidator} />
+      </ProofOfHumanityProvider>
+    );
+    const button = getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(button).toHaveTextContent('Test');
+
+    fireEvent.click(screen.getByText('Test'));
+    await waitFor(() => screen.getByText('Confirm'));
   });
 });

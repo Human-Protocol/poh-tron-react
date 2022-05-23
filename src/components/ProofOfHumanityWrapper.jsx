@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
 import { ethers } from 'ethers';
-import spinner from './spinner.gif';
+import AddressOwnershipConfirmation from './AddressOwnershipConfirmation';
+import spinner from '../assets/spinner.gif';
 
 const wrapperStyle = css`
   display: grid;
@@ -26,8 +27,7 @@ const textStyle = css`
   color: #4d4d4d;
 `;
 
-const createValidatorElement = (validator, onVerify) => {
-  const randomChallenge = ethers.utils.hexlify(ethers.utils.randomBytes(32));
+const createValidatorElement = (validator, onVerify, data) => {
   return (
     <div
       css={css`
@@ -49,12 +49,18 @@ const createValidatorElement = (validator, onVerify) => {
         }
       `}
     >
-      {React.cloneElement(validator, { onVerify, data: randomChallenge })}
+      {React.cloneElement(validator, { onVerify, data })}
     </div>
   );
 };
 
-const ProofOfHumanity = ({ validators, onVerify }) => {
+const ProofOfHumanityWrapper = ({
+  validators,
+  onVerify,
+  data,
+  type,
+  ethereum
+}) => {
   const [validator, setValidator] = useState(() => {
     if (Array.isArray(validators)) {
       return validators.length === 1 ? validators[0] : null;
@@ -63,8 +69,24 @@ const ProofOfHumanity = ({ validators, onVerify }) => {
     }
   });
 
+  const [addressOwnerSignature, setAddressOwnerSignature] = useState(null);
+
+  if (type === 'sovereign' && !addressOwnerSignature) {
+    return (
+      <AddressOwnershipConfirmation
+        ethereum={ethereum}
+        data={data}
+        onConfirm={setAddressOwnerSignature}
+      />
+    );
+  }
+
   if (validator) {
-    return createValidatorElement(validator, onVerify);
+    const validatorData =
+      type === 'sovereign'
+        ? ethers.utils.hexConcat([data, addressOwnerSignature])
+        : data;
+    return createValidatorElement(validator, onVerify, validatorData);
   }
 
   const validatorButtons = validators.map((validator, index) => {
@@ -91,4 +113,4 @@ const ProofOfHumanity = ({ validators, onVerify }) => {
   );
 };
 
-export default ProofOfHumanity;
+export default ProofOfHumanityWrapper;

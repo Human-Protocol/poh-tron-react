@@ -69,6 +69,26 @@ const handleClick = () => {
 
 > The method in the smart contract must know how to deal with the `proof`. You can leverage a Solidity library just for that: [poh-contracts](https://npmjs.com/package/poh-contracts)
 
+## Using Sovereign PoH
+
+If you want to use [sovereign PoH](https://github.com/bakoushin/poh-contracts#sovereign-proof) instead of the basic one, you have to provide additional `options` object to `useProofOfHumanity` hook.
+
+`Options` object has two properties:
+
+- `type` – if `sovereign`, the PoH component should ask the user to confirm their address ownership. The default value is `basic`
+- `ethereum` – specifies MetaMask API used to sign address ownership confirmation
+
+Example:
+
+```javascript
+import { useProofOfHumanity } from 'poh-react';
+
+const { getProofOfHumanity } = useProofOfHumanity(validator, {
+  type: 'sovereign',
+  ethereum
+});
+```
+
 ## Supported Validator Plugins
 
 - [hCaptcha validator](https://npmjs.com/package/poh-validator-hcaptcha-react)
