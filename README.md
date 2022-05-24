@@ -113,6 +113,7 @@ Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hca
 
 ## See also
 
+- [Proof-of-HUMANity on-chain: protect your smart contracts from bots](https://www.humanprotocol.org/blog/proof-of-humanity-on-chain-protect-your-smart-contracts-from-bots)
 - [Proof-of-Humanity hCaptcha Validator API](https://hub.docker.com/r/bakoushin/poh-validator-hcaptcha)
 - [Proof-of-Humanity hCaptcha Validator React](https://npmjs.com/package/poh-validator-hcaptcha-react)
 - [Proof-of-Humanity Solidity Contracts](https://npmjs.com/package/poh-contracts)
