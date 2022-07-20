@@ -106,7 +106,7 @@ function Modal() {
 
 function useProofOfHumanity(
   validators,
-  { type, ethereum } = { type: 'basic', ethereum: null }
+  { type, tronWeb } = { type: 'basic', tronWeb: null }
 ) {
   const { open } = useContext(ProofOfHumanityContext);
 
@@ -120,7 +120,7 @@ function useProofOfHumanity(
         data: randomChallenge,
         validators,
         type,
-        ethereum
+        tronWeb
       });
     });
   };

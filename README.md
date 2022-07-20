@@ -1,19 +1,19 @@
-# Proof-of-Humanity-React
+# Proof-of-Humanity TRON Core React Component
 
-[![NPM](https://img.shields.io/npm/v/poh-react)](https://www.npmjs.com/package/poh-react)
+[![NPM](https://img.shields.io/npm/v/poh-tron-react)](https://www.npmjs.com/package/poh-tron-react)
 
-Proof-of-Humanity Core Component for React.
+Proof-of-Humanity TRON Core Component for React.
 
 Used as a wrapper for PoH validators.
 
 ## Live dApp demo
 
-https://poh-counter.bakoush.in ([source code](https://github.com/bakoushin/poh-counter-example))
+https://poh-tron-counter.bakoush.in ([source code](https://github.com/bakoushin/poh-tron-counter-example))
 
 ## Install
 
 ```bash
-npm install poh-react
+npm install poh-tron-react
 ```
 
 ## Usage
@@ -21,7 +21,7 @@ npm install poh-react
 ### 1. Wrap your app into the `ProofOfHumanityProvider`
 
 ```javascript
-import { ProofOfHumanityProvider } from 'poh-react';
+import { ProofOfHumanityProvider } from "poh-tron-react";
 
 <ProofOfHumanityProvider>
   <App />
@@ -31,7 +31,7 @@ import { ProofOfHumanityProvider } from 'poh-react';
 ### 2. Initialize at least one PoH validator plugin (e.g. [poh-validator-hcaptcha](https://npmjs.com/packages/poh-validator-hcaptcha))
 
 ```jsx
-import hCaptchaValidator from 'poh-validator-hcaptcha';
+import hCaptchaValidator from "poh-validator-hcaptcha";
 
 const validator = (
   <HCaptchaValidator
@@ -44,7 +44,7 @@ const validator = (
 ### 3. Initialize the `getProofOfHumanity` method from the PoH hook
 
 ```javascript
-import { useProofOfHumanity } from 'poh-react';
+import { useProofOfHumanity } from "poh-tron-react";
 
 const { getProofOfHumanity } = useProofOfHumanity(validator);
 ```
@@ -57,7 +57,10 @@ const handleClick = () => {
       const { error, errorMessage, proof } = await getProofOfHumanity();
 
       if (!error) {
-        const tx = await mySmartContract.someImportantMethod(proof);
+        await mySmartContract.someImportantMethod(proof).send({
+            feeLimit: 100_000_000,
+            callValue: 0
+        });
       }
   } catch(error) {
     console.error(error);
@@ -67,25 +70,25 @@ const handleClick = () => {
 <button onClick={handleClick}>Send transaction</button>
 ```
 
-> The method in the smart contract must know how to deal with the `proof`. You can leverage a Solidity library just for that: [poh-contracts](https://npmjs.com/package/poh-contracts)
+> The method in the smart contract must know how to deal with the `proof`. You can leverage a Solidity library just for that: [poh-tron-contracts](https://npmjs.com/package/poh-tron-contracts)
 
 ## Using Sovereign PoH
 
-If you want to use [sovereign PoH](https://github.com/bakoushin/poh-contracts#sovereign-proof) instead of the basic one, you have to provide additional `options` object to `useProofOfHumanity` hook.
+If you want to use [sovereign PoH](https://github.com/bakoushin/poh-tron-contracts#sovereign-proof) instead of the basic one, you have to provide additional `options` object to `useProofOfHumanity` hook.
 
 `Options` object has two properties:
 
 - `type` – if `sovereign`, the PoH component should ask the user to confirm their address ownership. The default value is `basic`
-- `ethereum` – specifies MetaMask API used to sign address ownership confirmation
+- `tronWeb` – specifies [TronWeb API](https://developers.tron.network/reference/tronweb-object) used to sign address ownership confirmation
 
 Example:
 
 ```javascript
-import { useProofOfHumanity } from 'poh-react';
+import { useProofOfHumanity } from "poh-tron-react";
 
 const { getProofOfHumanity } = useProofOfHumanity(validator, {
-  type: 'sovereign',
-  ethereum
+  type: "sovereign",
+  tronWeb,
 });
 ```
 
@@ -114,10 +117,10 @@ Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hca
 ## See also
 
 - [Proof-of-HUMANity on-chain: protect your smart contracts from bots](https://www.humanprotocol.org/blog/proof-of-humanity-on-chain-protect-your-smart-contracts-from-bots)
-- [Proof-of-Humanity hCaptcha Validator API](https://hub.docker.com/r/bakoushin/poh-validator-hcaptcha)
+- [Proof-of-Humanity TRON Solidity Contracts](https://npmjs.com/package/poh-tron-contracts)
+- [Proof-of-Humanity TRON hCaptcha Validator API](https://hub.docker.com/r/bakoushin/poh-tron-validator-hcaptcha)
 - [Proof-of-Humanity hCaptcha Validator React](https://npmjs.com/package/poh-validator-hcaptcha-react)
-- [Proof-of-Humanity Solidity Contracts](https://npmjs.com/package/poh-contracts)
-- [Counter dApp Example](https://github.com/bakoushin/poh-counter-example)
+- [Counter dApp Example for TRON](https://github.com/bakoushin/poh-tron-counter-example)
 
 ## Author
 

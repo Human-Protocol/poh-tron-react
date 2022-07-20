@@ -59,7 +59,7 @@ const ProofOfHumanityWrapper = ({
   onVerify,
   data,
   type,
-  ethereum
+  tronWeb
 }) => {
   const [validator, setValidator] = useState(() => {
     if (Array.isArray(validators)) {
@@ -74,7 +74,7 @@ const ProofOfHumanityWrapper = ({
   if (type === 'sovereign' && !addressOwnerSignature) {
     return (
       <AddressOwnershipConfirmation
-        ethereum={ethereum}
+        tronWeb={tronWeb}
         data={data}
         onConfirm={setAddressOwnerSignature}
       />

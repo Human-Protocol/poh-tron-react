@@ -1,7 +1,7 @@
 {
-  "name": "poh-react",
-  "version": "0.0.3",
-  "description": "Proof-of-Humanity Core Component for React",
+  "name": "poh-tron-react",
+  "version": "0.0.1",
+  "description": "Proof-of-Humanity TRON Core React Component",
   "main": "lib/index.js",
   "module": "lib/index.es.js",
   "scripts": {
@@ -13,18 +13,19 @@
   "keywords": [
     "react",
     "humanity",
-    "proof"
+    "proof",
+    "TRON"
   ],
   "author": "Alex Bakoushin <alex@bakoush.in>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bakoushin/poh-react.git"
+    "url": "https://github.com/bakoushin/poh-tron-react.git"
   },
   "bugs": {
-    "url": "https://github.com/bakoushin/poh-react/issues"
+    "url": "https://github.com/bakoushin/poh-tron-react/issues"
   },
-  "homepage": "https://github.com/bakoushin/poh-react#readme",
+  "homepage": "https://github.com/bakoushin/poh-tron-react#readme",
   "files": [
     "lib"
   ],

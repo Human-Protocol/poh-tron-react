@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { css } from '@emotion/react';
-import { ethers } from 'ethers';
 import Button from './Button';
 
 const commentStyle = css`
@@ -10,16 +9,14 @@ const commentStyle = css`
   max-width: 240px;
 `;
 
-const AddressOwnershipConfirmation = ({ ethereum, data, onConfirm }) => {
+const AddressOwnershipConfirmation = ({ tronWeb, data, onConfirm }) => {
   const [loading, setLoading] = useState(false);
 
   const confirmAddressOwnership = async (data) => {
     setLoading(true);
 
     try {
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      const signature = await signer.signMessage(ethers.utils.arrayify(data));
+      const signature = await tronWeb.trx.sign(data);
       onConfirm(signature);
     } catch (error) {
       console.error(error);
