@@ -20,12 +20,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bakoushin/poh-tron-react.git"
+    "url": "https://github.com/Human-Protocol/poh-tron-react.git"
   },
   "bugs": {
-    "url": "https://github.com/bakoushin/poh-tron-react/issues"
+    "url": "https://github.com/Human-Protocol/poh-tron-react/issues"
   },
-  "homepage": "https://github.com/bakoushin/poh-tron-react#readme",
+  "homepage": "https://github.com/Human-Protocol/poh-tron-react#readme",
   "files": [
     "lib"
   ],
