@@ -28,10 +28,10 @@ import { ProofOfHumanityProvider } from "poh-tron-react";
 </ProofOfHumanityProvider>;
 ```
 
-### 2. Initialize at least one PoH validator plugin (e.g. [poh-validator-hcaptcha](https://npmjs.com/packages/poh-validator-hcaptcha))
+### 2. Initialize at least one PoH validator plugin (e.g. [poh-validator-hcaptcha-react](https://npmjs.com/packages/poh-validator-hcaptcha-react))
 
 ```jsx
-import hCaptchaValidator from "poh-validator-hcaptcha";
+import hCaptchaValidator from "poh-validator-hcaptcha-react";
 
 const validator = (
   <HCaptchaValidator
