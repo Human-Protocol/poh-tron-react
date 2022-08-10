@@ -8,7 +8,7 @@ Used as a wrapper for PoH validators.
 
 ## Live dApp demo
 
-https://poh-tron-counter.bakoush.in ([source code](https://github.com/bakoushin/poh-tron-counter-example))
+https://poh-tron-counter.bakoush.in ([source code](https://github.com/Human-Protocol/poh-tron-counter-example))
 
 ## Install
 
@@ -74,7 +74,7 @@ const handleClick = () => {
 
 ## Using Sovereign PoH
 
-If you want to use [sovereign PoH](https://github.com/bakoushin/poh-tron-contracts#sovereign-proof) instead of the basic one, you have to provide additional `options` object to `useProofOfHumanity` hook.
+If you want to use [sovereign PoH](https://github.com/Human-Protocol/poh-tron-contracts#sovereign-proof) instead of the basic one, you have to provide additional `options` object to `useProofOfHumanity` hook.
 
 `Options` object has two properties:
 
@@ -120,7 +120,7 @@ Example plugin: [hCaptcha validator](https://npmjs.com/package/poh-validator-hca
 - [Proof-of-Humanity TRON Solidity Contracts](https://npmjs.com/package/poh-tron-contracts)
 - [Proof-of-Humanity TRON hCaptcha Validator API](https://hub.docker.com/r/bakoushin/poh-tron-validator-hcaptcha)
 - [Proof-of-Humanity hCaptcha Validator React](https://npmjs.com/package/poh-validator-hcaptcha-react)
-- [Counter dApp Example for TRON](https://github.com/bakoushin/poh-tron-counter-example)
+- [Counter dApp Example for TRON](https://github.com/Human-Protocol/poh-tron-counter-example)
 
 ## Author
 
