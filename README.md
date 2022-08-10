@@ -28,7 +28,7 @@ import { ProofOfHumanityProvider } from "poh-tron-react";
 </ProofOfHumanityProvider>;
 ```
 
-### 2. Initialize at least one PoH validator plugin (e.g. [poh-validator-hcaptcha-react](https://npmjs.com/packages/poh-validator-hcaptcha-react))
+### 2. Initialize at least one PoH validator plugin (e.g. [poh-validator-hcaptcha-react]([https://npmjs.com/packages/poh-validator-hcaptcha-react](https://www.npmjs.com/package/poh-validator-hcaptcha-react)))
 
 ```jsx
 import hCaptchaValidator from "poh-validator-hcaptcha-react";
